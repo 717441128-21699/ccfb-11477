@@ -1,0 +1,504 @@
+{
+  "match_id": "M1001",
+  "competition": "示例联赛 第12轮",
+  "home_team": {
+    "id": "T-ARS",
+    "canonical": "阿森纳",
+    "aliases": {
+      "A": "Arsenal FC",
+      "B": "Arsenal",
+      "C": "阿仙奴"
+    }
+  },
+  "away_team": {
+    "id": "T-CHE",
+    "canonical": "切尔西",
+    "aliases": {
+      "A": "Chelsea FC",
+      "B": "Chelsea",
+      "C": "车路士"
+    }
+  },
+  "kickoff": "2026-11-15T12:00:00Z",
+  "players": [
+    {
+      "id": "P-1001",
+      "canonical": "萨卡",
+      "team": "home",
+      "number": 7,
+      "aliases": {
+        "A": "Bukayo Saka",
+        "B": "B.Saka",
+        "C": "沙卡"
+      }
+    },
+    {
+      "id": "P-1002",
+      "canonical": "厄德高",
+      "team": "home",
+      "number": 8,
+      "aliases": {
+        "A": "Martin Odegaard",
+        "B": "M.Odegaard",
+        "C": "奥迪加特"
+      }
+    },
+    {
+      "id": "P-1003",
+      "canonical": "赖斯",
+      "team": "home",
+      "number": 41,
+      "aliases": {
+        "A": "Declan Rice",
+        "B": "D.Rice",
+        "C": "赖斯"
+      }
+    },
+    {
+      "id": "P-1004",
+      "canonical": "热苏斯",
+      "team": "home",
+      "number": 9,
+      "aliases": {
+        "A": "Gabriel Jesus",
+        "B": "G.Jesus",
+        "C": "捷西斯"
+      }
+    },
+    {
+      "id": "P-1005",
+      "canonical": "萨利巴",
+      "team": "home",
+      "number": 2,
+      "aliases": {
+        "A": "William Saliba",
+        "B": "W.Saliba",
+        "C": "沙利巴"
+      }
+    },
+    {
+      "id": "P-1006",
+      "canonical": "拉亚",
+      "team": "home",
+      "number": 1,
+      "aliases": {
+        "A": "David Raya",
+        "B": "D.Raya",
+        "C": "拉耶"
+      }
+    },
+    {
+      "id": "P-2001",
+      "canonical": "帕尔默",
+      "team": "away",
+      "number": 20,
+      "aliases": {
+        "A": "Cole Palmer",
+        "B": "C.Palmer",
+        "C": "彭马"
+      }
+    },
+    {
+      "id": "P-2002",
+      "canonical": "杰克逊",
+      "team": "away",
+      "number": 15,
+      "aliases": {
+        "A": "Nicolas Jackson",
+        "B": "N.Jackson",
+        "C": "积逊"
+      }
+    },
+    {
+      "id": "P-2003",
+      "canonical": "恩佐",
+      "team": "away",
+      "number": 8,
+      "aliases": {
+        "A": "Enzo Fernandez",
+        "B": "E.Fernandez",
+        "C": "费南迪斯"
+      }
+    },
+    {
+      "id": "P-2004",
+      "canonical": "穆德里克",
+      "team": "away",
+      "number": 10,
+      "aliases": {
+        "A": "Mykhailo Mudryk",
+        "B": "M.Mudryk",
+        "C": "梅迪利克"
+      }
+    },
+    {
+      "id": "P-2005",
+      "canonical": "凯塞多",
+      "team": "away",
+      "number": 25,
+      "aliases": {
+        "A": "Moises Caicedo",
+        "B": "M.Caicedo",
+        "C": "卡斯度"
+      }
+    },
+    {
+      "id": "P-2006",
+      "canonical": "桑切斯",
+      "team": "away",
+      "number": 1,
+      "aliases": {
+        "A": "Robert Sanchez",
+        "B": "R.Sanchez",
+        "C": "山齐士"
+      }
+    }
+  ],
+  "sources": {
+    "A": {
+      "transport": "websocket",
+      "path": "/ws/A",
+      "profile": "官方源：慢但准，延迟高，撤回少",
+      "delay_ms": 3000,
+      "jitter_ms": 700,
+      "drop": []
+    },
+    "B": {
+      "transport": "websocket",
+      "path": "/ws/B",
+      "profile": "快速源：最快但噪，误报多",
+      "delay_ms": 700,
+      "jitter_ms": 350,
+      "drop": [
+        {
+          "match_sec": 1800,
+          "duration_ms": 9000
+        }
+      ]
+    },
+    "C": {
+      "transport": "long_poll",
+      "path": "/poll/C",
+      "profile": "长轮询源：延迟中等，偶发乱序",
+      "delay_ms": 1800,
+      "jitter_ms": 500,
+      "poll_timeout_ms": 5000,
+      "drop": [
+        {
+          "match_sec": 3000,
+          "duration_ms": 8000
+        }
+      ]
+    }
+  },
+  "timeline": [
+    {
+      "match_sec": 0,
+      "type": "kickoff",
+      "truth_id": "EV-KO",
+      "sources": [
+        "A",
+        "B",
+        "C"
+      ],
+      "note": "开球"
+    },
+    {
+      "match_sec": 720,
+      "type": "yellow_card",
+      "truth_id": "EV-Y1",
+      "minute": 12,
+      "team": "away",
+      "player": "P-2005",
+      "sources": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "match_sec": 1380,
+      "type": "goal",
+      "truth_id": "EV-G1",
+      "minute": 23,
+      "team": "home",
+      "player": "P-1001",
+      "score_after": [
+        1,
+        0
+      ],
+      "sources": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "match_sec": 1740,
+      "type": "false_yellow",
+      "truth_id": "EV-FY1",
+      "minute": 29,
+      "team": "home",
+      "player": "P-1003",
+      "reported_by": [
+        "B"
+      ],
+      "retract_after_ms": 6000,
+      "false_event_type": "yellow_card"
+    },
+    {
+      "match_sec": 1860,
+      "type": "goal",
+      "truth_id": "EV-G2",
+      "minute": 31,
+      "team": "home",
+      "player": "P-1002",
+      "score_after": [
+        2,
+        0
+      ],
+      "sources": [
+        "A",
+        "B",
+        "C"
+      ],
+      "note": "B 在 30 分整掉线 9 秒，本事件靠重连补传收回"
+    },
+    {
+      "match_sec": 2100,
+      "type": "red_card",
+      "truth_id": "EV-R1",
+      "minute": 35,
+      "team": "away",
+      "player": "P-2003",
+      "sources": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "match_sec": 2400,
+      "type": "substitution",
+      "truth_id": "EV-S1",
+      "minute": 40,
+      "team": "home",
+      "player_off": "P-1004",
+      "player_on": "P-1002",
+      "sources": [
+        "A",
+        "B",
+        "C"
+      ],
+      "note": "映射检查：热苏斯下、厄德高上（剧本复用球员，纯映射演示）"
+    },
+    {
+      "match_sec": 2580,
+      "type": "false_goal",
+      "truth_id": "EV-FG1",
+      "minute": 43,
+      "team": "away",
+      "player": "P-2002",
+      "reported_by": [
+        "B"
+      ],
+      "retract_after_ms": 5000,
+      "false_event_type": "goal"
+    },
+    {
+      "match_sec": 2685,
+      "type": "penalty_goal",
+      "truth_id": "EV-PG1",
+      "minute": 45,
+      "team": "away",
+      "player": "P-2001",
+      "score_after": [
+        2,
+        1
+      ],
+      "sources": [
+        "A",
+        "B",
+        "C"
+      ],
+      "jitter_overrides": {
+        "C": 4000
+      },
+      "note": "C 被注入额外抖动，制造乱序：C 的 45 分钟点球晚于 46 分钟事件到达"
+    },
+    {
+      "match_sec": 2730,
+      "type": "yellow_card",
+      "truth_id": "EV-Y2",
+      "minute": 46,
+      "team": "home",
+      "player": "P-1005",
+      "sources": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "match_sec": 2760,
+      "type": "halftime",
+      "truth_id": "EV-HT",
+      "sources": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "match_sec": 2820,
+      "type": "kickoff",
+      "truth_id": "EV-KO2",
+      "sources": [
+        "A",
+        "B",
+        "C"
+      ],
+      "note": "下半场开球"
+    },
+    {
+      "match_sec": 3300,
+      "type": "goal",
+      "truth_id": "EV-G3",
+      "minute": 55,
+      "team": "away",
+      "player": "P-2004",
+      "score_after": [
+        2,
+        2
+      ],
+      "sources": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "match_sec": 3540,
+      "type": "false_red",
+      "truth_id": "EV-FR1",
+      "minute": 59,
+      "team": "home",
+      "player": "P-1006",
+      "reported_by": [
+        "B"
+      ],
+      "retract_after_ms": 7000,
+      "false_event_type": "red_card"
+    },
+    {
+      "match_sec": 3840,
+      "type": "substitution",
+      "truth_id": "EV-S2",
+      "minute": 64,
+      "team": "away",
+      "player_off": "P-2005",
+      "player_on": "P-2006",
+      "sources": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "match_sec": 4080,
+      "type": "goal",
+      "truth_id": "EV-G4",
+      "minute": 68,
+      "team": "home",
+      "player": "P-1001",
+      "score_after": [
+        3,
+        2
+      ],
+      "sources": [
+        "A",
+        "B",
+        "C"
+      ],
+      "note": "C 在 50 分掉线 8 秒，本事件靠长轮询 since 游标补传"
+    },
+    {
+      "match_sec": 4500,
+      "type": "own_goal",
+      "truth_id": "EV-OG1",
+      "minute": 75,
+      "team": "away",
+      "player": "P-2006",
+      "score_after": [
+        4,
+        2
+      ],
+      "sources": [
+        "A",
+        "B",
+        "C"
+      ],
+      "note": "乌龙：得分计给主队"
+    },
+    {
+      "match_sec": 4740,
+      "type": "false_goal_official",
+      "truth_id": "EV-FGO1",
+      "minute": 79,
+      "team": "home",
+      "player": "P-1002",
+      "score_after": [
+        5,
+        2
+      ],
+      "reported_by": [
+        "A"
+      ],
+      "retract_after_ms": 6000,
+      "note": "官方源自己误报又撤回：权威比分必须随之回退",
+      "false_event_type": "goal"
+    },
+    {
+      "match_sec": 5040,
+      "type": "penalty_miss",
+      "truth_id": "EV-PM1",
+      "minute": 84,
+      "team": "home",
+      "player": "P-1001",
+      "sources": [
+        "A",
+        "B",
+        "C"
+      ],
+      "note": "罚丢：不得分"
+    },
+    {
+      "match_sec": 5280,
+      "type": "goal",
+      "truth_id": "EV-G5",
+      "minute": 88,
+      "team": "away",
+      "player": "P-2001",
+      "score_after": [
+        4,
+        3
+      ],
+      "sources": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "match_sec": 5520,
+      "type": "fulltime",
+      "truth_id": "EV-FT",
+      "sources": [
+        "A",
+        "B",
+        "C"
+      ],
+      "note": "终场"
+    }
+  ]
+}

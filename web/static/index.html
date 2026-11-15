@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>足球多源数据融合台</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">⚽</span>
+      <div>
+        <h1>足球多源数据融合台</h1>
+        <p class="sub">三家数据商推送 · 实时采集 / 多数确认 / 撤回纠错 / 延迟统计</p>
+      </div>
+    </div>
+    <div class="conn">
+      <span id="ws-dot" class="dot off"></span>
+      <span id="ws-text">连接中…</span>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="matches">赛事列表</button>
+    <button class="tab" data-tab="timeline">实时事件</button>
+    <button class="tab" data-tab="sources">数据源对比</button>
+    <button class="tab" data-tab="corrections">纠错记录</button>
+    <button class="tab" data-tab="report">赛后报告</button>
+  </nav>
+
+  <main>
+    <!-- 赛事列表 -->
+    <section id="tab-matches" class="view active">
+      <div id="match-cards" class="cards"></div>
+    </section>
+
+    <!-- 实时事件时间线 -->
+    <section id="tab-timeline" class="view">
+      <div class="scoreboard" id="scoreboard"></div>
+      <div class="filterbar">
+        <label>状态筛选
+          <select id="status-filter">
+            <option value="">全部</option>
+            <option value="PENDING">待确认</option>
+            <option value="CONFIRMED">已确认</option>
+            <option value="RETRACTED">已撤回</option>
+          </select>
+        </label>
+        <span class="hint">先到的来源高亮；补传票带 <em>补</em> 标记</span>
+      </div>
+      <div id="timeline" class="timeline"></div>
+    </section>
+
+    <!-- 数据源对比 -->
+    <section id="tab-sources" class="view">
+      <div id="source-status" class="cards"></div>
+      <h3 class="section-title">逐事件到达时间差（相对最快来源，毫秒）</h3>
+      <div class="table-wrap">
+        <table id="compare-table">
+          <thead><tr>
+            <th>分钟</th><th>事件</th><th>状态</th>
+            <th>来源 A（官方）</th><th>来源 B</th><th>来源 C</th><th>最快</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 纠错记录 -->
+    <section id="tab-corrections" class="view">
+      <div class="table-wrap">
+        <table id="correction-table">
+          <thead><tr>
+            <th>时间</th><th>类型</th><th>来源</th><th>事件</th><th>说明</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 赛后报告 -->
+    <section id="tab-report" class="view">
+      <div id="report-area">
+        <p class="empty">比赛终场后自动生成报告，也可点下方按钮手动刷新。</p>
+        <button id="refresh-report" class="btn">刷新报告</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
