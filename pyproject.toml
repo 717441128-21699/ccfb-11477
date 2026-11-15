@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "football-fusion"
+version = "1.0.0"
+description = "本地模拟三家足球数据商推送的采集融合服务（asyncio + aiohttp）"
+requires-python = ">=3.11"
+dependencies = ["aiohttp>=3.9"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.scripts]
+fusion-server = "fusion.app:main"

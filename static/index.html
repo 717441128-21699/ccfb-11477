@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>足球数据采集融合控制台</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">⚽</span>
+      <div>
+        <h1>足球数据采集融合控制台</h1>
+        <p class="sub">三家模拟数据商 · WebSocket / SSE / 长轮询 · asyncio 融合引擎</p>
+      </div>
+    </div>
+    <div class="match-picker">
+      <label>赛事</label>
+      <select id="matchSelect"></select>
+      <span id="wsState" class="ws-state" title="实时通道状态">未连接</span>
+    </div>
+  </header>
+
+  <section class="scoreboard" id="scoreboard"></section>
+  <nav class="tabs" id="tabs">
+    <button class="tab active" data-tab="matches">赛事列表</button>
+    <button class="tab" data-tab="live">实时事件</button>
+    <button class="tab" data-tab="compare">数据源对比</button>
+    <button class="tab" data-tab="corrections">纠错记录</button>
+    <button class="tab" data-tab="report">赛后报告</button>
+  </nav>
+
+  <main>
+    <section class="panel active" data-panel="matches" id="panelMatches"></section>
+    <section class="panel" data-panel="live" id="panelLive"></section>
+    <section class="panel" data-panel="compare" id="panelCompare"></section>
+    <section class="panel" data-panel="corrections" id="panelCorrections"></section>
+    <section class="panel" data-panel="report" id="panelReport"></section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

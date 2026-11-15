@@ -1,0 +1,116 @@
+{
+  "match_id": "m001",
+  "home": "RED_LIONS",
+  "away": "BLUE_SHARKS",
+  "label": "红狮 vs 蓝鲨（全场景剧本）",
+  "events": [
+    {
+      "id": "e01", "type": "kickoff", "minute": 0, "team": "RED_LIONS",
+      "at_sec": 5,
+      "reports": {
+        "alpha": {"delay": 0.2},
+        "beta":  {"delay": 1.0},
+        "gamma": {"delay": 1.6}
+      }
+    },
+    {
+      "id": "e02", "type": "goal", "minute": 12, "team": "RED_LIONS", "player": "P_FOSTER",
+      "at_sec": 15, "score": [1, 0],
+      "reports": {
+        "alpha": {"delay": 0.3},
+        "beta":  {"delay": 2.0},
+        "gamma": {"delay": 3.2}
+      }
+    },
+    {
+      "id": "e03", "type": "goal", "minute": 23, "team": "BLUE_SHARKS", "player": "P_ROSSI",
+      "at_sec": 25, "score": [1, 1],
+      "false_report": {"provider": "gamma", "delay": 1.0, "retract_after": 6.0}
+    },
+    {
+      "id": "e04", "type": "yellow_card", "minute": 27, "team": "BLUE_SHARKS", "player": "P_KOCH",
+      "at_sec": 30,
+      "reports": {
+        "alpha": {"delay": 0.4},
+        "beta":  {"delay": 1.2},
+        "gamma": {"delay": 0.9}
+      }
+    },
+    {
+      "id": "e05", "type": "red_card", "minute": 34, "team": "RED_LIONS", "player": "P_DIAZ",
+      "at_sec": 40,
+      "reports": {
+        "alpha": {"delay": 0.5},
+        "beta":  {"delay": 1.5, "retract_after": 5.0},
+        "gamma": {"delay": 2.2}
+      }
+    },
+    {
+      "id": "e06", "type": "penalty_goal", "minute": 38, "team": "RED_LIONS", "player": "P_FOSTER",
+      "at_sec": 50, "score": [2, 1],
+      "reports": {
+        "alpha": {"at_sec": 58.0},
+        "beta":  {"delay": 1.1},
+        "gamma": {"delay": 2.4}
+      }
+    },
+    {
+      "id": "e07", "type": "own_goal", "minute": 45, "team": "BLUE_SHARKS", "player": "P_KOCH",
+      "at_sec": 65, "score": [3, 1],
+      "reports": {
+        "alpha": {"delay": 0.4},
+        "beta":  {"delay": 1.8, "score": [2, 2]},
+        "gamma": {"delay": 2.6}
+      }
+    },
+    {
+      "id": "e08", "type": "substitution", "minute": 56, "team": "RED_LIONS",
+      "player_out": "P_CHEN", "player_in": "P_PARK",
+      "at_sec": 72,
+      "reports": {
+        "alpha": {"delay": 0.3},
+        "beta":  {"delay": 1.0},
+        "gamma": {"delay": 4.5}
+      }
+    },
+    {
+      "id": "e09", "type": "var", "minute": 61, "team": "RED_LIONS",
+      "at_sec": 80,
+      "reports": {
+        "alpha": {"delay": 0.6},
+        "beta":  {"delay": 0.9},
+        "gamma": {"at_sec": 90.0}
+      }
+    },
+    {
+      "id": "e10", "type": "halftime", "minute": 45, "team": "RED_LIONS",
+      "at_sec": 88,
+      "reports": {
+        "alpha": {"delay": 0.3},
+        "beta":  {"delay": 0.8},
+        "gamma": {"delay": 1.5}
+      }
+    },
+    {
+      "id": "e11", "type": "goal", "minute": 67, "team": "BLUE_SHARKS", "player": "P_ROSSI",
+      "at_sec": 95, "score": [3, 2],
+      "reports": {
+        "alpha": {"at_sec": 100.0},
+        "beta":  {"delay": 1.2},
+        "gamma": {"delay": 2.0}
+      }
+    },
+    {
+      "id": "e12", "type": "fulltime", "minute": 90, "team": "RED_LIONS",
+      "at_sec": 110,
+      "reports": {
+        "alpha": {"delay": 0.4},
+        "beta":  {"delay": 0.9},
+        "gamma": {"delay": 1.7}
+      }
+    }
+  ],
+  "drops": [
+    {"provider": "alpha", "at_sec": 55, "down_sec": 6}
+  ]
+}

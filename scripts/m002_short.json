@@ -1,0 +1,43 @@
+{
+  "match_id": "m002",
+  "home": "RED_LIONS",
+  "away": "BLUE_SHARKS",
+  "label": "红狮 vs 蓝鲨（短剧本·轮询掉线）",
+  "events": [
+    {
+      "id": "s01", "type": "kickoff", "minute": 0, "team": "RED_LIONS",
+      "at_sec": 3,
+      "reports": {
+        "alpha": {"delay": 0.2},
+        "beta":  {"delay": 0.7},
+        "gamma": {"delay": 1.1}
+      }
+    },
+    {
+      "id": "s02", "type": "goal", "minute": 18, "team": "RED_LIONS", "player": "P_DIAZ",
+      "at_sec": 14, "score": [1, 0],
+      "reports": {
+        "alpha": {"delay": 0.4},
+        "beta":  {"delay": 1.3},
+        "gamma": {"at_sec": 22.0}
+      }
+    },
+    {
+      "id": "s03", "type": "yellow_card", "minute": 30, "team": "BLUE_SHARKS", "player": "P_OKAFOR",
+      "at_sec": 26,
+      "false_report": {"provider": "beta", "delay": 0.8, "retract_after": 4.0}
+    },
+    {
+      "id": "s04", "type": "fulltime", "minute": 90, "team": "RED_LIONS",
+      "at_sec": 40,
+      "reports": {
+        "alpha": {"delay": 0.3},
+        "beta":  {"delay": 0.6},
+        "gamma": {"delay": 1.0}
+      }
+    }
+  ],
+  "drops": [
+    {"provider": "gamma", "at_sec": 18, "down_sec": 6}
+  ]
+}
